@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Ix_Experimental-Main</id>
+    <version>1.1.10823</version>
+    <title>Ix_Experimental-Main</title>
+    <authors>Microsoft Corporation</authors>
+    <owners>Microsoft Corporation</owners>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=221704</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkID=221703</projectUrl>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkId=221705</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Interactive Extensions Main Library used to express queries over enumerable sequences.</description>
+    <summary>Interactive Extensions Main Library used to express queries over enumerable sequences.</summary>
+    <tags>Ix Interactive Extensions Enumerable</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
