@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -20,11 +21,27 @@ namespace OrchestraYacq
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow : MetroWindow, INotifyPropertyChanged
     {
+        MainWindowViewModel mv;
+
+
+        #region INotifyPropertyChanged Members
+        protected void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
         public MainWindow()
         {
+            mv = new MainWindowViewModel();
+            DataContext = mv;
             InitializeComponent();
+
+            dgr_Persons.ItemsSource = mv.Persons;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -76,6 +93,28 @@ namespace OrchestraYacq
             {
                 MessageBox.Show(ex.Message, "try again", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            //var query = mv.Persons
+            //            .Yacq()
+            //            .Where("(== (% it 3) 0)")
+            //            .GroupBy("(/ it 10)")
+            //            .Select("it.(Average)")
+            //            .OrderByDescending("it");
+
+           
+
+            //mv.Persons.Where(x => x.Sex == "male");
+
+            //dgr_Persons.ItemsSource = mv.Persons.Select(x => x.Sex == "male").Distinct();
+            //dgr_Persons.ItemsSource = mv.Persons.Where(x => x.Sex == txt_Expression.Text);
+            //dgr_Persons.ItemsSource = mv.Persons.Yacq().Where(txt_Expression.Text);
+            dgr_Persons.ItemsSource = mv.Persons.Yacq().Where("(== (x).('Sex') 'male')");
+
+            //persons.Where(x => x.Age < 50);
         }
     }
 }
