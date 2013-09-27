@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using OrchestraYacq.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,30 +92,30 @@ namespace OrchestraYacq
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "try again", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Try again", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
-            //var query = mv.Persons
-            //            .Yacq()
-            //            .Where("(== (% it 3) 0)")
-            //            .GroupBy("(/ it 10)")
-            //            .Select("it.(Average)")
-            //            .OrderByDescending("it");
 
-           
+            try
+            {
+                //Expression<Func<Person, bool>> lambda =
+                //        YacqServices.ParseFunc<Person, bool>("(==(it.Sex) 'male')");
 
-            //mv.Persons.Where(x => x.Sex == "male");
+                Expression<Func<Person, bool>> lambda =
+                        YacqServices.ParseFunc<Person, bool>(txt_Expression.Text);
 
-            //dgr_Persons.ItemsSource = mv.Persons.Select(x => x.Sex == "male").Distinct();
-            //dgr_Persons.ItemsSource = mv.Persons.Where(x => x.Sex == txt_Expression.Text);
-            //dgr_Persons.ItemsSource = mv.Persons.Yacq().Where(txt_Expression.Text);
-            dgr_Persons.ItemsSource = mv.Persons.Yacq().Where("(== (x).('Sex') 'male')");
+                dgr_Persons.ItemsSource = mv.Persons.Yacq().Where(lambda);
 
-            //persons.Where(x => x.Age < 50);
+                //persons.Where(x => x.Age < 50);
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show(ex.Message, "Try again", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

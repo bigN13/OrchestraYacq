@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Yacq Exploration" Height="350" Width="525">
+        Title="Yacq Exploration" Height="600" Width="800">
     <Controls:MetroWindow.GlowBrush>
         <SolidColorBrush Color="{DynamicResource AccentColor}" />
     </Controls:MetroWindow.GlowBrush>
@@ -25,33 +25,7 @@
     </Controls:MetroWindow.WindowCommands>
     <Grid>
         <TabControl>
-            <TabItem Header="Yacq 1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="90*"/>
-                        <ColumnDefinition Width="257*"/>
-                        <ColumnDefinition Width="170*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Button Content="Calculate" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="25"/>
-                    <TextBox x:Name="txt_Evaluate1" HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" TextWrapping="Wrap" Text="Yacq.net" VerticalAlignment="Stretch" Grid.ColumnSpan="2" IsEnabled="False" />
-                    <TextBox x:Name="txt_expr1" HorizontalAlignment="Stretch" Margin="5" TextWrapping="Wrap" Text="(+ 1 2 3)" VerticalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <TextBox x:Name="txt_Result1" HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" TextWrapping="Wrap" Text="...." VerticalAlignment="Stretch" Grid.Column="2" IsEnabled="False" FontWeight="Bold" FontSize="14" />
-
-
-                    <Button x:Name="btn_2" Content="Calculate" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="75" Grid.Row="2" Click="btn_2_Click" Height="25"/>
-                    <TextBox x:Name="txt_expr2" HorizontalAlignment="Stretch" Height="26" Margin="5,5,5,0" TextWrapping="Wrap" Text="it.(ToUpper).(Replace 'FOO' 'bar')" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <TextBox  x:Name="txt_Evaluate2" HorizontalAlignment="Stretch" Margin="5" Grid.Row="3" TextWrapping="Wrap" Text="Yacq.net" VerticalAlignment="Stretch" Grid.ColumnSpan="2" IsEnabled="False" />
-                    <TextBox x:Name="txt_Result2" HorizontalAlignment="Stretch" Margin="5" Grid.Row="3" TextWrapping="Wrap" Text="...." VerticalAlignment="Stretch" Grid.Column="2" IsEnabled="False" FontSize="14" FontWeight="Bold" />
-
-                </Grid>
-            </TabItem>
+           
             <TabItem Header="Datagrid">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -78,6 +52,33 @@
                              Controls:TextboxHelper.Watermark="Put your expression here....."
                                      ToolTip="Write your Yacq expression" />
                     <Button Content="Apply" Grid.Column="1" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Stretch" Width="75" Click="Button_Click_1"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Yacq Parser">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="257*"/>
+                        <ColumnDefinition Width="170*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Content="Calculate" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="25"/>
+                    <TextBox x:Name="txt_Evaluate1" HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" TextWrapping="Wrap" Text="Yacq.net" VerticalAlignment="Stretch" Grid.ColumnSpan="2" IsEnabled="False" />
+                    <TextBox x:Name="txt_expr1" HorizontalAlignment="Stretch" Margin="5" TextWrapping="Wrap" Text="(+ 1 2 3)" VerticalAlignment="Stretch" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="txt_Result1" HorizontalAlignment="Stretch" Margin="5" Grid.Row="1" TextWrapping="Wrap" Text="...." VerticalAlignment="Stretch" Grid.Column="2" IsEnabled="False" FontWeight="Bold" FontSize="14" />
+
+
+                    <Button x:Name="btn_2" Content="Calculate" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Width="75" Grid.Row="2" Click="btn_2_Click" Height="25"/>
+                    <TextBox x:Name="txt_expr2" HorizontalAlignment="Stretch" Height="26" Margin="5,5,5,0" TextWrapping="Wrap" Text="it.(ToUpper).(Replace 'FOO' 'bar')" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <TextBox  x:Name="txt_Evaluate2" HorizontalAlignment="Stretch" Margin="5" Grid.Row="3" TextWrapping="Wrap" Text="Yacq.net" VerticalAlignment="Stretch" Grid.ColumnSpan="2" IsEnabled="False" />
+                    <TextBox x:Name="txt_Result2" HorizontalAlignment="Stretch" Margin="5" Grid.Row="3" TextWrapping="Wrap" Text="...." VerticalAlignment="Stretch" Grid.Column="2" IsEnabled="False" FontSize="14" FontWeight="Bold" />
 
                 </Grid>
             </TabItem>
